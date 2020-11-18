@@ -21,6 +21,15 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::resources([
+    'account' => '\App\Http\Controllers\AccountController',
+    'category' => '\App\Http\Controllers\CategoryController',
+    'coin' => '\App\Http\Controllers\CoinController',
+    'sharedAccount' => '\App\Http\Controllers\SharedAccountController',
+    'transaction' => '\App\Http\Controllers\TransactionController',
+    'transactionType' => '\App\Http\Controllers\TransactionTypeController',
+    'transfer' => '\App\Http\Controllers\TransferController',
 
+    ]);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
