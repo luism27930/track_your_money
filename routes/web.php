@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,6 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-
 Route::resources([
     'account' => '\App\Http\Controllers\AccountController',
     'category' => '\App\Http\Controllers\CategoryController',
@@ -32,3 +31,5 @@ Route::resources([
     'transfer' => '\App\Http\Controllers\TransferController',
 
     ]);
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);

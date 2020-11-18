@@ -29,5 +29,14 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    
+        'google' => [
+            'client_id' => '532223452284-93q6g5gn1b5tbntdl1lkpnves1v0b32s.apps.googleusercontent.com',
+            'client_secret' => 'Sdbo_J8N5antzK16pIGJFtPL',
+            'redirect' => 'http://serene-taiga-75016.herokuapp.com/auth/google/callback',
+        ],
+    
 
 ];
+
+
